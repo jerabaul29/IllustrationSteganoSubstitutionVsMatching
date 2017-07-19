@@ -10,7 +10,7 @@ path_prefix = current_root + '../SourceImages/'
 # test lsb substitution --------------------------------------------------------------------
 print("----- test lsb substitution -----")
 
-inst_dummy_stego = dummy_stego.dummy_lsb_stego(path_prefix + 'DSC_0028.TIF', path_prefix + 'stego_substitution_DSC_0028.TIF')
+inst_dummy_stego = dummy_stego.dummy_lsb_stego(path_prefix + 'DSC_0027.TIF', path_prefix + 'stego_substitution_DSC_0028.TIF')
 
 # image before lsb substitution
 print("Show image before anything done on it...")

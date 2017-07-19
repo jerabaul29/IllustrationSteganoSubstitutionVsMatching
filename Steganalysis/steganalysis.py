@@ -13,13 +13,20 @@ def produce_histogram(array, n_bits=8):
     return number_of_occurences
 
 
-def show_histogram(histogram_intensity, ylim=None, fig_and_show='True'):
+def show_histogram(histogram_intensity, ylim=None, xlim=None, fig_and_show='True'):
     if fig_and_show:
         plt.figure()
 
     plt.bar(np.arange(0, histogram_intensity.size, 1), histogram_intensity)
+
+    plt.xlabel('Intensity')
+    plt.ylabel('Count')
+
+    if xlim is not None:
+        plt.xlim([xlim[0], xlim[1]])
+
     if ylim is not None:
-        plt.ylim([-ylim, ylim])
+        plt.ylim([ylim[0], ylim[1]])
 
     if fig_and_show:
         plt.show()
@@ -154,6 +161,9 @@ class attack_lsb_substitution(object):
             plt.subplot(2, 1, 1)
             plt.bar(np.arange(0, self.histogram.size, 1), self.histogram)
 
+            plt.xlabel('Intensity')
+            plt.ylabel('Count')
+
             plt.subplot(2, 1, 2)
             color = []
             for ind in range(hist_mean_eu.size):
@@ -162,6 +172,24 @@ class attack_lsb_substitution(object):
                 else:
                     color.append('b')
             plt.bar(np.arange(0, hist_mean_eu.size, 1), hist_mean_eu, color=color)
+
+            plt.xlabel('Intensity')
+            plt.ylabel('Count')
+
+            plt.figure()
+            color = []
+            for ind in range(hist_mean_eu.size):
+                if ind in self.set_diffs_to_use:
+                    color.append('r')
+                    color.append('r')
+                else:
+                    color.append('b')
+                    color.append('b')
+
+            plt.bar(np.arange(0, self.histogram.size, 1), self.histogram, color=color)
+
+            plt.xlabel('Intensity')
+            plt.ylabel('Count')
 
             plt.show()
 
@@ -189,4 +217,3 @@ class attack_lsb_substitution(object):
 
         else:
             print("selection method " + selection_method + " not implemented!")
-
