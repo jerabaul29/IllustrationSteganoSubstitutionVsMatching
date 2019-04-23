@@ -10,4 +10,4 @@ This repository contains code that illustrates the weakness of lsb substitution,
 
 ## To go further
 
-To go further, read for example the blog post XX, and the more detailed pdf XX.
+To go further, read for example the blog post https://folk.uio.no/jeanra/Informatics/AFewWordsSteganography.html , and the more detailed pdf https://folk.uio.no/jeanra/Informatics/Vulgatization_steganography.pdf .
